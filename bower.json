@@ -1,5 +1,8 @@
 {
-  "name" : "learn-blog",
-  "description" : "This is learning project ",
-  "version" : "1.0.0"
+  "name": "learn-blog",
+  "description": "This is learning project ",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.5.7"
+  }
 }
