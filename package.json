@@ -1,0 +1,18 @@
+{
+  "name": "learning-blog",
+  "version": "1.0.0",
+  "description": "Learning stuff",
+  "private": true,
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merzak7/LearnBlog.git"
+  },
+  "author": "Ayman Nedjmeddine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/merzak7/LearnBlog/issues"
+  },
+  "homepage": "https://github.com/merzak7/LearnBlog#readme",
+  "dependencies": {}
+}
