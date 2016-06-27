@@ -75,3 +75,4 @@ GitHub.sublime-settings
 
 .idea/
 public/lib
+node_modules/
