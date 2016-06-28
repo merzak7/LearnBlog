@@ -8,6 +8,8 @@ import * as bodyParser from 'body-parser'
 const PORT = process.env.PORT || 8000
 let app = express()
 app.use(morgan('dev'))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
 
 // routes
 import * as routes from './routes/init'

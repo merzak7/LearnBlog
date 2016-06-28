@@ -2,7 +2,7 @@
 
 import {Router} from 'express'
 import {normalize, join} from 'path'
-import {readFileSync} from 'fs'
+import {readFileSync, writeFileSync} from 'fs'
 
 let router = Router()
 
@@ -31,6 +31,18 @@ router.get('/:id', (req,res, next)=>{
         if (post.id == parseInt(req.params.id, 10))
             res.json(post)
     next(new Error('Cannot find post with id:' + req.params.id))
+})
+
+// post a new article
+// TODO ~ validations
+router.post('/', (req, res, next)=>{
+    let post:Post = req.body
+    if (!post)
+        next(new Error('Empty payload!'))
+    post.id = posts.length
+    posts.push(post)
+    writeFileSync(f, JSON.stringify(posts), 'utf8')
+    res.json(post)
 })
 
 router.use((err:Error, req, res, next) => {
