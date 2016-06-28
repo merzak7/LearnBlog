@@ -1,9 +1,26 @@
 {
-  "name": "learn-blog",
-  "description": "This is learning project ",
+  "name": "learning-blog",
+  "description": "This is learning project",
   "version": "1.0.0",
   "dependencies": {
     "angular": "^1.5",
     "angular-route": "^1.5.7"
-  }
+  },
+  "homepage": "https://github.com/merzak7/LearnBlog",
+  "authors": [
+    "IOAyman <theycallmethedr@gmail.com>"
+    "Merzak7 <merzak17@gmail.com>",
+    "JDevy <zeghbayahia@gmail.com>",
+  ],
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
 }

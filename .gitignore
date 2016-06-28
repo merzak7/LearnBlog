@@ -73,5 +73,9 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
-.idea/
+.idea
 public/lib
+node_modules
+typings
+build
+dist
