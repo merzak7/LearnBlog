@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Learning stuff",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "gulp serve"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/merzak7/LearnBlog.git"
