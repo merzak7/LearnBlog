@@ -1,7 +1,16 @@
 # Learning Blog
 Lorem ipsum Velit esse dolor pariatur dolor adipisicing exercitation.
 
-## Usage
+### init
+```bash
+npm i -g express gulp tsd typescript nodemon bower
+npm install
+bower install
+tsd install
+gulp build
+```
+
+### Usage
 
 __start node server and watch for file changes__  
 *input:* `./build/server/go.js`  
