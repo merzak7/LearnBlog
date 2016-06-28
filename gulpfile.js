@@ -33,10 +33,12 @@ gulp.task('watch', function() {
     return gulp.watch(path.normalize(project.src), ['tsc']);
 });
 
-gulp.task('clean', function() {
-    rm(['./build/**', './dist/**']).then((cleaned)=>{
-      console.log('Cleaned build\n', cleaned)
-    })
+gulp.task('clean:build', function() {
+    rm('./build/**').then((cleaned)=>{console.log('Cleaned build\n', cleaned)})
 });
+gulp.task('clean:dist', function() {
+    rm('./dist/**').then((cleaned)=>{console.log('Cleaned dist\n', cleaned)})
+});
+gulp.task('clean',['clean:build', 'clean:dist'], function() {});
 
 gulp.task('default',['clean', 'dist'], function() {});
