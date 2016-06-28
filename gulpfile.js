@@ -11,12 +11,13 @@ var project = {
     "project": tsc.createProject('./tsconfig.json', {"watch":false}),
     "src": "./server/**/*.ts",
     "build": "./build/server",
-    "dist": "./dist/server"
+    "dist": "./dist/server",
+    "static": "./public/**"
 }
 
 
 gulp.task('copy-static', function() {
-    return gulp.src(path.normalize('./public/**'))
+    return gulp.src(path.normalize(project.static))
       .pipe(gulp.dest(path.normalize(path.join(project.build, 'public'))))
       .pipe(gulp.dest(path.normalize(path.join(project.dist, 'public'))));
 });
@@ -36,8 +37,11 @@ gulp.task('dist', ['tsc', 'copy-static'], function() {
 });
 
 
-gulp.task('watch', function() {
+gulp.task('watch:server', function() {
     return gulp.watch(path.normalize(project.src), ['tsc']);
+});
+gulp.task('watch:public', function() {
+    return gulp.watch(path.normalize(project.static), ['copy-static']);
 });
 
 
