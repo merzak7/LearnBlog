@@ -2,6 +2,7 @@ var gulp = require('gulp')
 var tsc = require('gulp-typescript')
 var uglify = require('gulp-uglify')
 var path = require('path')
+var rm = require('del')
 
 
 // projects config
@@ -32,5 +33,10 @@ gulp.task('watch', function() {
     return gulp.watch(path.normalize(project.src), ['tsc']);
 });
 
+gulp.task('clean', function() {
+    rm(['./build/**', './dist/**']).then((cleaned)=>{
+      console.log('Cleaned build\n', cleaned)
+    })
+});
 
-gulp.task('default',['build'], function() {});
+gulp.task('default',['clean', 'dist'], function() {});
