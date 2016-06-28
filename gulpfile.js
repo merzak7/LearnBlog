@@ -15,15 +15,21 @@ var project = {
 }
 
 
+gulp.task('copy-static', function() {
+    return gulp.src(path.normalize('./public/**'))
+      .pipe(gulp.dest(path.normalize(path.join(project.build, 'public'))))
+      .pipe(gulp.dest(path.normalize(path.join(project.dist, 'public'))));
+});
+
 gulp.task('tsc', function() {
     return gulp.src(path.normalize(project.src))
       .pipe(tsc(project.project))
       .pipe(gulp.dest(path.normalize(project.build)));
 });
-gulp.task('build',['tsc'], function() {});
+gulp.task('build',['tsc', 'copy-static'], function() {});
 
 
-gulp.task('dist', ['tsc'], function() {
+gulp.task('dist', ['tsc', 'copy-static'], function() {
     return gulp.src(path.normalize(project.build + '/**/*.js'))
       .pipe(uglify())
       .pipe(gulp.dest(path.normalize(project.dist)));
