@@ -22,13 +22,11 @@ let posts:Post[] = JSON.parse(readFileSync(f, 'utf8'))
 
 // get all posts
 router.get('/', (req,res)=>{
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8081");
     res.json(posts)
 })
 
 // get post by id
 router.get('/:id', (req,res, next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8081");
     for (let post of posts)
         if (post.id == parseInt(req.params.id, 10))
             res.json(post)
