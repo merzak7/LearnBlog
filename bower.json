@@ -5,7 +5,8 @@
   "dependencies": {
     "angular": "^1.5",
     "angular-route": "^1.5.7",
-    "angular-resource": "^1.5.7"
+    "angular-resource": "^1.5.7",
+    "angular-material": "^1.0.9"
   },
   "homepage": "https://github.com/merzak7/LearnBlog",
   "authors": [
