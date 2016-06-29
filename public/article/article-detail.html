@@ -1,0 +1,7 @@
+<h1>Article Detail</h1>
+<h2>Title: {{article.title}}</h2>
+<h4>Author: {{article.author}}</h4>
+<h5>Date: {{article.date}}</h5>
+<p>Text: {{article.text}}</p>
+<h6 ng-show="article.video!=null">Video: <a href="{{article.video}}" target="_blank">{{article.video}}</a></h6>
+<h6 ng-show="article.audio!=null">Audio: <a href="{{article.audio}}" target="_blank">{{article.audio}}</a></h6>

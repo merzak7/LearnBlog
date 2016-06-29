@@ -10,8 +10,12 @@ app.config(function($routeProvider) {
 		controller:'LoginCtrl'
 	})
 	.when('/article',{
-		templateUrl:'../article/article-form.html',
+		templateUrl:'../article/articles.html',
 		controller:'ArticleCtrl'
+	})
+	.when('/article_detail',{
+		templateUrl:'../article/article-detail.html',
+		controller:'Article_detailCtrl'
 	})
 	.otherwise({
 		redirectTo:'/'
