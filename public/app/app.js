@@ -1,9 +1,10 @@
-var app=angular.module('app',['ngRoute','ngResource','Login','Article']);
+var app=angular.module('app',['ngRoute','ngResource','Home','Login','Article']);
 
 app.config(function($routeProvider) {
 	$routeProvider
-	.when('/',{
-		template:'<a href="#login">login</a>'
+	.when('/home',{
+		templateUrl:'../home/home.html',
+		controller:'HomeCtrl'
 	})
 	.when('/login',{
 		templateUrl:'../login/login.html',
@@ -18,6 +19,6 @@ app.config(function($routeProvider) {
 		controller:'Article_detailCtrl'
 	})
 	.otherwise({
-		redirectTo:'/'
+		redirectTo:'/home'
 	})
 });

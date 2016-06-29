@@ -4,15 +4,8 @@
 	<title></title>
 </head>
 <body>
-	<form action="#/article">
-		title: <input type="text" ng-model="title"><br><br>
-		text: <textarea type="text" ng-model="text"></textarea><br><br>
-		video url: <input type="text" ng-model="video"><br><br>
-		audio url: <input type="text" ng-model="audio"><br><br>
-		<button ng-click="addArticle()">add</button>
-	</form>
-
-
+	<div ng-include="'../app/header.html'"></div>
+	 <br><br>   
 	<ul>
 		<li ng-repeat="article in articles">
 		<h2 ng-show="article.title">
@@ -25,6 +18,5 @@
 		<h6 ng-show="article.audio">Audio: <a href="{{article.audio}}" target="_blank">{{article.audio}}</a></h6>
 		</li>
 	</ul>
-	<!-- {{articles | json}} -->
 </body>
 </html>

@@ -1,7 +1,7 @@
 var article=angular.module('Article',[]);
 
-
-article.service('ArticleServices',function(){
+// services
+article.service('ArticleServices',function($resource){
 		var article={};
 		this.getArticle=function(){
 			return article;
@@ -9,16 +9,18 @@ article.service('ArticleServices',function(){
 		this.setArticle=function(art){
 			article=art;
 		};
+		this.getArticles=function(){
+			return $resource("http://localhost:8000/posts");
+		}
 });
+// controllers
+article.controller('ArticleCtrl',function($scope,$location,ArticleServices){
 
-article.controller('ArticleCtrl',function($scope,$location,$resource,ArticleServices){
-
-	var res=$resource("http://localhost:8000/posts");//:id",{id:'@id'},{action:{method :"GET"}});
+	var res=ArticleServices.getArticles();
 	$scope.articles=res.query();
 
-	 $scope.getArticle=function(article){
+	 $scope.setArticle=function(article){
 	 	ArticleServices.setArticle(article);
-	 	$location.path('/article_detail');
 	 };
 
 	 $scope.addArticle=function(){
