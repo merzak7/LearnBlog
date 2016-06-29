@@ -36,7 +36,6 @@ router.get('/:id', (req,res, next)=>{
 // post a new article
 // TODO ~ validations
 router.post('/', (req, res, next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8081");
     let post:Post = req.body
     if (!post)
         next(new Error('Empty payload!'))
