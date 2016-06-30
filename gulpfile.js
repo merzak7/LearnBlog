@@ -36,12 +36,6 @@ var project = {
 }
 
 
-gulp.task('copy-static', ()=>{
-    return gulp.src(path.normalize(project.static))
-      .pipe(gulp.dest(path.normalize(path.join(project.build, 'public'))))
-      .pipe(gulp.dest(path.normalize(path.join(project.dist, 'public'))))
-})
-
 gulp.task('tsc', ()=>{
     return gulp.src(path.normalize(project.src))
       .pipe(tsc(project.project))
@@ -58,7 +52,6 @@ gulp.task('tsformat', ()=>{
 
 gulp.task('build',['tsc', 'copy-static'], ()=>{})
 
-
 gulp.task('dist', ['tsc', 'copy-static'], ()=>{
     return gulp.src(path.normalize(project.build + '/**/*.js'))
       .pipe(uglify())
@@ -69,8 +62,15 @@ gulp.task('dist', ['tsc', 'copy-static'], ()=>{
 gulp.task('watch:server', ()=>{
     return gulp.watch(path.normalize(project.src), ['tsc', 'tsformat'])
 })
-gulp.task('watch:public', ()=>{
+gulp.task('watch:public', ['serve'], ()=>{
     return gulp.watch(path.normalize(project.static), ['copy-static'])
+})
+
+gulp.task('copy-static', ()=>{
+    return gulp.src(path.normalize(project.static))
+      .pipe(changed(path.normalize(path.join(project.build, 'public'))))
+      .pipe(gulp.dest(path.normalize(path.join(project.build, 'public'))))
+      // .pipe(gulp.dest(path.normalize(path.join(project.dist, 'public'))))
 })
 
 
