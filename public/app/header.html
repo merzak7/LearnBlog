@@ -1,6 +1,19 @@
-<h1 ng-bind="page_title"></h1>
-<ul>
-	<li><a href="#login">login</a></li>
-	<li><a href="#home">home</a></li>
-	<li><a href="#">about us</a></li>
-</ul>
+<md-fab-toolbar md-direction="left">
+    <md-fab-trigger>
+        <md-button aria-label="Add...">
+            <md-icon md-svg-src="../img/menu-button.svg"></md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-toolbar>
+        <md-fab-actions>
+            <md-button aria-label="Add User">
+                <md-icon md-svg-src="../img/home-button.svg"></md-icon>
+                Home
+            </md-button>
+            <md-button aria-label="Add Group">
+                <md-icon md-svg-src="../img/user-button.svg"></md-icon>
+                About me
+            </md-button>
+        </md-fab-actions>
+    </md-toolbar>
+</md-fab-toolbar>

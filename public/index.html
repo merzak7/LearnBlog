@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="login/login.css">
+    <title>Home | LearnBlog </title>
+    <link rel="stylesheet" type="text/css" href="login/login.css">
+    <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.min.css">
 </head>
-<body ng-app="app">
-	<!--views-->
-	<ng-view></ng-view>
+<body ng-app="app" ng-cloak layout="column">
+<!--views-->
+<div ng-include="'app/header.html'"></div>
 
-	<!--scripts-->
-	<script src="lib/angular/angular.js"></script>
-	<script src="lib/angular-route/angular-route.js"></script>
-	<script src="lib/angular-resource/angular-resource.js"></script>
-	<script src="lib/angular-aria/angular-aria.js"></script>
-	<script src="lib/angular-animate/angular-animate.js"></script>
-	<script src="lib/angular-material/angular-material.js"></script>
-	<script src="app/app.js"></script>
-	<script src="login/login.js"></script>
-	<script src="article/article.js"></script>
-	<script src="home/home.js"></script>
+<ng-view></ng-view>
+
+<!--scripts-->
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<script src="lib/angular-resource/angular-resource.js"></script>
+<script src="lib/angular-animate/angular-animate.js"></script>
+<script src="lib/angular-aria/angular-aria.js"></script>
+<script src="lib/angular-material/angular-material.min.js"></script>
+<script src="app/app.js"></script>
+<script src="login/login.js"></script>
+<script src="article/article.js"></script>
+<script src="home/home.js"></script>
 
 
 </body>
