@@ -2,6 +2,9 @@ var gulp = require('gulp')
 var tsc = require('gulp-typescript')
 var uglify = require('gulp-uglify')
 var nodemon = require('gulp-nodemon')
+var tsfmt = require('gulp-tsfmt')
+var changedInPlace = require('gulp-changed-in-place')
+var changed = require('gulp-changed')
 var path = require('path')
 var rm = require('del')
 
@@ -12,6 +15,20 @@ var project = {
         "module": "commonjs",
         "watch":false
       }),
+    "tsfmt": {
+      "IndentSize": 2,
+      "TabSize": 2,
+      "NewLineCharacter": "\n",
+      "ConvertTabsToSpaces": true,
+      "InsertSpaceAfterCommaDelimiter": true,
+      "InsertSpaceAfterSemicolonInForStatements": true,
+      "InsertSpaceBeforeAndAfterBinaryOperators": true,
+      "InsertSpaceAfterKeywordsInControlFlowStatements": true,
+      "InsertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+      "InsertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+      "PlaceOpenBraceOnNewLineForFunctions": false,
+      "PlaceOpenBraceOnNewLineForControlBlocks": false
+    },
     "src": "./server/**/*.ts",
     "build": "./build/server",
     "dist": "./dist/server",
@@ -30,6 +47,15 @@ gulp.task('tsc', ()=>{
       .pipe(tsc(project.project))
       .pipe(gulp.dest(path.normalize(project.build)))
 })
+
+gulp.task('tsformat', ()=>{
+  return gulp.src('./server')
+    .pipe(changedInPlace())
+    .pipe(tsfmt({ options: project.tsfmt }))
+    .pipe(gulp.dest(project.src))
+})
+
+
 gulp.task('build',['tsc', 'copy-static'], ()=>{})
 
 
@@ -41,7 +67,7 @@ gulp.task('dist', ['tsc', 'copy-static'], ()=>{
 
 
 gulp.task('watch:server', ()=>{
-    return gulp.watch(path.normalize(project.src), ['tsc'])
+    return gulp.watch(path.normalize(project.src), ['tsc', 'tsformat'])
 })
 gulp.task('watch:public', ()=>{
     return gulp.watch(path.normalize(project.static), ['copy-static'])
