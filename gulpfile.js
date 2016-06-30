@@ -8,7 +8,10 @@ var rm = require('del')
 
 // projects config
 var project = {
-    "project": tsc.createProject('./tsconfig.json', {"watch":false}),
+    "project": tsc.createProject('./tsconfig.json', {
+        "module": "commonjs",
+        "watch":false
+      }),
     "src": "./server/**/*.ts",
     "build": "./build/server",
     "dist": "./dist/server",
