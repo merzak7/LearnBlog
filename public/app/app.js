@@ -1,4 +1,4 @@
-var app=angular.module('app',['ngRoute','ngResource','Home','Login','Article']);
+var app=angular.module('app',['ngRoute','ngResource','ngMaterial','Article']);
 
 app.config(function($routeProvider) {
 	$routeProvider
