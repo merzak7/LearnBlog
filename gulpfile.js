@@ -5,6 +5,7 @@ var nodemon = require('gulp-nodemon')
 var tsfmt = require('gulp-tsfmt')
 var changedInPlace = require('gulp-changed-in-place')
 var changed = require('gulp-changed')
+var browserSync = require('browser-sync').create()
 var path = require('path')
 var rm = require('del')
 
@@ -37,13 +38,13 @@ var project = {
 
 
 gulp.task('tsc', ()=>{
-    return gulp.src(path.normalize(project.src))
+    gulp.src(path.normalize(project.src))
       .pipe(tsc(project.project))
       .pipe(gulp.dest(path.normalize(project.build)))
 })
 
 gulp.task('tsformat', ()=>{
-  return gulp.src('./server')
+  gulp.src('./server')
     .pipe(changedInPlace())
     .pipe(tsfmt({ options: project.tsfmt }))
     .pipe(gulp.dest(project.src))
@@ -53,21 +54,30 @@ gulp.task('tsformat', ()=>{
 gulp.task('build',['tsc', 'copy-static'], ()=>{})
 
 gulp.task('dist', ['tsc', 'copy-static'], ()=>{
-    return gulp.src(path.normalize(project.build + '/**/*.js'))
+    gulp.src(path.normalize(project.build + '/**/*.js'))
       .pipe(uglify())
       .pipe(gulp.dest(path.normalize(project.dist)))
 })
 
 
 gulp.task('watch:server', ['serve'], ()=>{
-    return gulp.watch(path.normalize(project.src), ['tsformat', 'tsc'])
+    gulp.watch(path.normalize(project.src), ['tsformat', 'tsc'])
 })
+
+
 gulp.task('watch:public', ['serve'], ()=>{
-    return gulp.watch(path.normalize(project.static), ['copy-static'])
+    browserSync.init({
+        port: 9000,
+        server: {
+            baseDir: './public'
+        }
+      })
+    gulp.watch(path.normalize(project.static))
+        .on('change', browserSync.reload)
 })
 
 gulp.task('copy-static', ()=>{
-    return gulp.src(path.normalize(project.static))
+    gulp.src(path.normalize(project.static))
       .pipe(changed(path.normalize(path.join(project.build, 'public'))))
       .pipe(gulp.dest(path.normalize(path.join(project.build, 'public'))))
       // .pipe(gulp.dest(path.normalize(path.join(project.dist, 'public'))))
@@ -75,7 +85,7 @@ gulp.task('copy-static', ()=>{
 
 
 gulp.task('serve', ['build'], ()=>{
-    return nodemon({script: './build/server/go.js'})
+    nodemon({script: './build/server/go.js'})
 })
 
 
