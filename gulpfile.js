@@ -59,8 +59,8 @@ gulp.task('dist', ['tsc', 'copy-static'], ()=>{
 })
 
 
-gulp.task('watch:server', ()=>{
-    return gulp.watch(path.normalize(project.src), ['tsc', 'tsformat'])
+gulp.task('watch:server', ['serve'], ()=>{
+    return gulp.watch(path.normalize(project.src), ['tsformat', 'tsc'])
 })
 gulp.task('watch:public', ['serve'], ()=>{
     return gulp.watch(path.normalize(project.static), ['copy-static'])
