@@ -2,7 +2,7 @@
 
 import {Router} from 'express'
 import {normalize, join} from 'path'
-import {readFileSync, writeFileSync} from 'fs'
+import {readFile, writeFile} from 'fs'
 
 let router = Router()
 
@@ -19,7 +19,13 @@ interface Post {
 
 // get static data
 let f:string = normalize(join(process.cwd(), './raw/posts.json'))
-let posts:Post[] = JSON.parse(readFileSync(f, 'utf8'))
+let posts:Post[] =  []
+readFile(f, 'utf8', (err, data)=>{
+  if(err) {
+    console.log(err)
+    throw "Cannot read posts from db!";
+  } else posts = JSON.parse(data)
+})
 
 
 // get all posts
@@ -43,7 +49,11 @@ router.post('/', (req, res, next) => {
     next(new Error('Empty payload!'))
   post.id = posts.length
   posts.push(post)
-  writeFileSync(f, JSON.stringify(posts), 'utf8')
+  writeFile(f, JSON.stringify(posts), (err) => {
+    if (err)
+      throw "cannot write post to db";
+      next(err)
+  })
   res.json(post)
 })
 
