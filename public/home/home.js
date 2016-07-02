@@ -7,5 +7,4 @@ app.controller('HomeCtrl',function($scope,$location,ArticleServices){
 	$scope.setArticle=function(article){
 	 	ArticleServices.setArticle(article);
 	 };
-
 });
