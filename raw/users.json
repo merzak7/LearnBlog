@@ -1,0 +1,18 @@
+[
+  {
+    "id": 0,
+    "username": "admin",
+    "password": "helloworld",
+    "bio": "Lorem ipsum Amet nulla irure veniam in esse eiusmod cupidatat quis nulla.",
+    "url": "https://github.com/IOAyman",
+    "role": "admin"
+  },
+  {
+    "id": 1,
+    "username": "user",
+    "password": "helloworld",
+    "bio": "Lorem ipsum Amet nulla irure veniam in esse eiusmod cupidatat quis nulla.",
+    "url": "https://github.com/IOAyman",
+    "role": "user"
+  }
+]
