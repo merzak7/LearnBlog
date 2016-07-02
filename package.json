@@ -31,6 +31,7 @@
     "gulp-nodemon": "^2.1.0",
     "gulp-tsfmt": "^1.0.2",
     "gulp-typescript": "^2.13.6",
-    "gulp-uglify": "^1.5.4"
+    "gulp-uglify": "^1.5.4",
+    "tslint": "^3.12.1"
   }
 }
