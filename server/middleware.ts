@@ -40,6 +40,8 @@ passport.use(new Strategy((username, password, done) => {
   User.findOneByUsername(username, (err, user) => {
     if (err || !user)
       return done(err, null, {message: 'Not such user!'})
+    else if (password !== user.password)
+      return done(new Error('password doesn\'t match!'), null, {message: 'password doesn\'t match!'})
     else
       return done(null, user)
   })
