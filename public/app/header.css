@@ -1,3 +1,5 @@
 .md-fab-toolbar .md-fab-toolbar-wrapper {
-    height: 100%;
+  position: absolute;
+  height: 70px;
+  width: 100%;
 }
