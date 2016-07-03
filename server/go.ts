@@ -49,6 +49,14 @@ passport.use(new Strategy((username, password, done) => {
       return done(null, user)
   })
 }))
+passport.serializeUser((user, done) => {
+  done(null, user.username)
+})
+passport.deserializeUser((username, done) => {
+  User.findOneByUsername(username, (err, user) => {
+    done(err, user)
+  })
+})
 
 
 // todo ~ rm this!
