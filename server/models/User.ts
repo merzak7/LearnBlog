@@ -29,3 +29,11 @@ readFile(f, 'utf8', (err, data)=>{
 
 
 
+export function findOneByUsername(username:string, callback:(err:Error, data:User)=>void) {
+  for (let user of users) {
+    if (user.username === username)
+      callback(null, user)
+    else
+      callback(new Error('No such user as ' + username), null)
+  }
+}
