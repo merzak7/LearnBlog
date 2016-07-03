@@ -2,14 +2,14 @@
 
 import {Router} from 'express'
 import * as posts from './posts'
-import * as users from './users'
+import * as auth from './auth'
 
 let router = Router()
 
 
 // posts
 router.use('/posts', posts)
-router.use('/users', users)
+router.use('/auth', auth)
 
 
 export = router
