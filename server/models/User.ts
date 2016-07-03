@@ -5,7 +5,7 @@ import {readFile, writeFile} from 'fs'
 
 
 // user contract
-interface User {
+export interface User {
   id:number
   username:string
   password:string
@@ -36,4 +36,14 @@ export function findOneByUsername(username:string, callback:(err:Error, data:Use
     else
       callback(new Error('No such user as ' + username), null)
   }
+}
+
+export function save(user:User) {
+  user.id = users.length
+  users.push(user)
+  writeFile(f, JSON.stringify(users), (err) => {
+    if(err) {
+      console.log(err.message)
+    }
+  })
 }
