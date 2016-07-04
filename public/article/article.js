@@ -16,6 +16,8 @@ article.service('ArticleServices',function($resource){
 // controllers
 article.controller('ArticleCtrl',function($scope,$location,ArticleServices){
 
+
+	$scope.date=new Date();
 	var res=ArticleServices.getArticles();
 	$scope.articles=res.query();
 

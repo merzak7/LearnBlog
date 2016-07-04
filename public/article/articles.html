@@ -8,7 +8,7 @@
 
 <h2 ng-show="title"> Title: {{title}} </h2>
 <h4>Author: Admin</h4>
-<h5>Date: Tue Jun 28 2016 01:25:40 GMT+0100 (CET) </h5>
+<h5>Date: {{date | date:'EEEE, MMMM d, y'}} </h5>
 <p ng-show="text">Text: {{text}}</p>
 <h6 ng-show="video">Video: <a href="{{video}}" target="_blank">{{video}}</a></h6>
 <h6 ng-show="audio">Audio: <a href="{{audio}}" target="_blank">{{audio}}</a></h6>
