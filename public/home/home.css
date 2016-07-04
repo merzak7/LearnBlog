@@ -22,7 +22,6 @@
   display: -webkit-flex;
   display: flex;
   padding-bottom: 40px;
-  width: 80%;
 }
 
 /*
@@ -53,7 +52,7 @@
   flex: 1;
   padding-left: 10px;
   border-left: double #b4b4b4 2px;
+  max-width: 600px;
 }
 .article-body p{
-  width: 80%;
 }
