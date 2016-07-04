@@ -3,19 +3,17 @@
     <li ng-repeat="article in articles" class="article">
 
       <div class="article-info">
-        <h4 ng-show="article.author">Author: {{article.author}}</h4>
-        <h5 ng-show="article.date">Date: {{article.date}}</h5>
+        <h4 ng-show="article.author">{{article.author}}</h4>
+        <h5 ng-show="article.date">{{article.date }}</h5>
       </div><!--    End article info  -->
 
       <div class="article-body">
         <h2 ng-show="article.title">
-          <a href="#article_detail" ng-click="setArticle(article)">Title: {{article.title}}</a>
+          <a href="#article_detail" ng-click="setArticle(article)">{{article.title}}</a>
         </h2>
-        <p ng-show="article.text">Text: {{article.text | limitTo:150}}...,
+        <p ng-show="article.text">{{article.text | limitTo:150}}...,
           <a href="#article_detail" ng-click="setArticle(article)"> see more.</a>
         </p>
-        <h6 ng-show="article.video">Video: <a href="{{article.video}}" target="_blank">{{article.video}}</a></h6>
-        <h6 ng-show="article.audio">Audio: <a href="{{article.audio}}" target="_blank">{{article.audio}}</a></h6>
       </div><!--    End article body    -->
 
     </li><!--   End article   -->
