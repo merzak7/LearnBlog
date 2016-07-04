@@ -21,18 +21,4 @@
     </li><!--   End article   -->
   </ul>
 
-  <ul>
-    <li ng-repeat="article in articles">
-      <h2 ng-show="article.title">
-        <a href="#article_detail" ng-click="setArticle(article)">Title: {{article.title}}</a>
-      </h2>
-      <h4 ng-show="article.author">Author: {{article.author}}</h4>
-      <h5 ng-show="article.date">Date: {{article.date}}</h5>
-      <p ng-show="article.text">Text: {{article.text | limitTo:150}}...,
-        <a href="#article_detail" ng-click="setArticle(article)"> see more.</a>
-      </p>
-      <h6 ng-show="article.video">Video: <a href="{{article.video}}" target="_blank">{{article.video}}</a></h6>
-      <h6 ng-show="article.audio">Audio: <a href="{{article.audio}}" target="_blank">{{article.audio}}</a></h6>
-    </li>
-  </ul>
 </div><!--    End list articles   -->

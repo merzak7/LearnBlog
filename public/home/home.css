@@ -1,16 +1,25 @@
-.list-articles{
+.list-articles {
   padding-top: 70px;
 }
-.list-articles ul{
+
+.list-articles ul {
   list-style-type: none;
 }
-.article{
-  padding-left: 100px;
+
+.article {
+  display: -webkit-flex;
+  display: flex;
   padding-bottom: 20px;
+  width: 80%;
 }
-.article-info{
+
+.article-info {
+  width: 20%;
 }
-.article-body{
+
+.article-body {
+  -webkit-flex: 1;
+  flex: 1;
   padding-left: 10px;
   border-left: double #ff4104 2px;
 }
