@@ -1,17 +1,16 @@
 
 // services
-app.service('LoginServices',function(){
-	var isLogged=false;
+app.service('LoginServices',function($resource){
+	var loginResponse={};
 
 	this.submit=function(user){
-		var user1={"email":"admin","password":"admin"}
-		if(angular.equals(user,user1)){
-			isLogged=true;
-		}
+		var login=$resource("http://localhost:8000/auth/login");
+		login.save({username:user.username,password:user.password});
+		console.log(user);
 	};
 
-	this.isLogged=function(){
-		return isLogged;
+	this.loginResponse=function(){
+		return loginResponse;
 	};
 });
 // controllers
@@ -19,10 +18,6 @@ app.controller('LoginCtrl',function($scope,$location,LoginServices){
 	$scope.page_title="Login";
 	$scope.submit=function(user){
 		LoginServices.submit(user);
-		var isLogged=LoginServices.isLogged();
-		if(isLogged){
-			$location.path('/article');
-		}
 	};
 	
 });
