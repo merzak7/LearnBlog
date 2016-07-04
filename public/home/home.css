@@ -1,0 +1,17 @@
+.list-articles{
+  padding-top: 70px;
+
+}
+.list-articles ul{
+  list-style-type: none;
+}
+.article{
+  padding-left: 100px;
+  padding-bottom: 20px;
+}
+.article-info{
+}
+.article-body{
+  padding-left: 10px;
+  border-left: double #ff4104 2px;
+}
