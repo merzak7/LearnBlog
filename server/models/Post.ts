@@ -8,7 +8,7 @@ import {readFile, writeFile} from 'fs'
 export interface Post {
   id:number
   author:string
-  date:string
+  date:number
   text:string
   video:string
   audio:string
