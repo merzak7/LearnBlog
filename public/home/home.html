@@ -2,7 +2,7 @@
   <ul>
     <li ng-repeat="article in articles" class="article">
 
-      <div class="article-info">
+      <div class="article-info" hide-xs>
         <h4 ng-show="article.author">{{article.author}}</h4>
         <h5 ng-show="article.date">{{article.date |date:'EEEE, MMMM d, y'}}</h5>
       </div><!--    End article info  -->
