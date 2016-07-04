@@ -4,11 +4,13 @@ import {Router} from 'express'
 import {normalize, join} from 'path'
 import {readFile, writeFile} from 'fs'
 
+import * as Post from '../models/Post'
+
 let router = Router()
 
 // post contract
 interface Post {
-  id:Number
+  id:number
   author:string
   date:string
   text:string
@@ -17,28 +19,19 @@ interface Post {
 }
 
 
-// get static data
-let f:string = normalize(join(process.cwd(), './raw/posts.json'))
-let posts:Post[] =  []
-readFile(f, 'utf8', (err, data)=>{
-  if(err) {
-    console.log(err)
-    throw "Cannot read posts from db!";
-  } else posts = JSON.parse(data)
-})
-
-
 // get all posts
 router.get('/', (req, res) => {
-  res.json(posts)
+  res.json(Post.findAll())
 })
 
 // get post by id
 router.get('/:id', (req, res, next) => {
-  for (let post of posts)
-    if (post.id === parseInt(req.params.id, 10))
+  Post.findOneById(parseInt(req.params.id, 10), (err, post) => {
+    if (err)
+      next(err)
+    else
       res.json(post)
-  next(new Error('Cannot find post with id:' + req.params.id))
+  })
 })
 
 // post a new article
@@ -47,14 +40,12 @@ router.post('/', (req, res, next) => {
   let post:Post = req.body
   if (!post)
     next(new Error('Empty payload!'))
-  post.id = posts.length
-  posts.push(post)
-  writeFile(f, JSON.stringify(posts), (err) => {
-    if (err)
-      throw "cannot write post to db";
+  Post.save(post, (err, postId) => {
+    if(err)
       next(err)
+    else
+      res.json({id: postId})
   })
-  res.json(post)
 })
 
 router.use((err:Error, req, res, next) => {
