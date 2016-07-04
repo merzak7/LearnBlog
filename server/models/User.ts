@@ -9,6 +9,8 @@ export interface User {
   id?:number
   username:string
   password:string
+  name?:string
+  surname?:string
   bio?:string
   url?:string
   role?:ROLE
@@ -32,7 +34,6 @@ readFile(f, 'utf8', (err, data)=>{
 export function findOneByUsername(username:string, callback:(err:Error, data:User)=>void) {
   let u:User
   for (let user of users) {
-    console.log(user.username, 'vs', username)
     if (user.username === username)
       u = user
   }
