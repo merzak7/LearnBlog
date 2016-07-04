@@ -1,4 +1,4 @@
-var app=angular.module('app',['ngRoute','ngResource','ngMaterial','Article']);
+var app=angular.module('app',['ngRoute','ngResource','ngMaterial']);
 
 app.config(function($routeProvider) {
 	$routeProvider
@@ -11,7 +11,7 @@ app.config(function($routeProvider) {
 		controller:'LoginCtrl'
 	})
 	.when('/article',{
-		templateUrl:'../article/articles.html',
+		templateUrl:'../article/article-form.html',
 		controller:'ArticleCtrl'
 	})
 	.when('/article_detail',{
