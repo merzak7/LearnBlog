@@ -1,19 +1,19 @@
 [
     {
-        "id": 0, 
+        "id": 0,
         "title": "Rythem is Love",
         "author": "Keziah Jones",
-        "date": "Tue Jun 28 2016 01:25:40 GMT+0100 (CET)", 
-        "text": "Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. ", 
+        "date": 1467614307104,
+        "text": "Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. ",
         "video": "https://www.youtube.com/watch?v=Rp9mRlW7Tgo",
         "audio": "https://soundcloud.com/samguven/keziah-jones-rhythm-is-love"
     },
     {
-        "id": 1, 
+        "id": 1,
         "title": "A Million Miles from Home",
         "author": "Keziah Jones",
-        "date": "Tue Jun 28 2016 01:25:40 GMT+0100 (CET)", 
-        "text": "Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. ", 
+        "date": 1467614556981,
+        "text": "Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. Lorem ipsum Nulla ut eiusmod cupidatat ullamco deserunt consectetur anim pariatur cillum et in in anim dolor ullamco nisi nisi eu officia in sunt anim voluptate aute sunt aute incididunt labore aliqua do dolor est in pariatur sunt pariatur ut dolore occaecat. ",
         "video": "https://www.youtube.com/watch?v=5S80RwjBuuI"
     }
 ]
