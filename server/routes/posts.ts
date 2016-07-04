@@ -12,7 +12,7 @@ let router = Router()
 interface Post {
   id:number
   author:string
-  date:string
+  date:number
   text:string
   video:string
   audio:string
@@ -40,6 +40,7 @@ router.post('/', (req, res, next) => {
   let post:Post = req.body
   if (!post)
     next(new Error('Empty payload!'))
+  post.date = parseInt(req.body.date)
   Post.save(post, (err, postId) => {
     if(err)
       next(err)
