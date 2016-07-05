@@ -8,6 +8,7 @@ app.service('ArticleServices',function($resource){
 			article=art;
 		};
 		this.getArticles=function(){
-			return $resource("/posts");
+      // todo ~ remove http://localhost:8000 {kept for testing on 9000}
+			return $resource("http://localhost:8000/posts");
 		}
 });
