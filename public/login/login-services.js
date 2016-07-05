@@ -1,13 +1,14 @@
 // services
-app.service('LoginServices',function($resource, $location){
+app.service('LoginServices',function($resource, $location,$cookies,$rootScope){
 
 	this.submit=function(user){
-		var login=$resource("http://localhost:8000/auth/login");
+		var login=$resource("/auth/login");
 		login.save({username:user.username,password:user.password},
               function ok(){
-                $location.path('/home')
+              		$rootScope.logged=true;
+                	$location.path('/home');
               },function notOk() {
-                // todo ~ make some notification..
+                	$rootScope.logged=false;
               });
 	};
 

@@ -1,4 +1,4 @@
-var app=angular.module('app',['ngRoute','ngResource','ngMaterial']);
+var app=angular.module('app',['ngRoute','ngResource','ngMaterial','ngCookies']);
 
 app.config(function($routeProvider) {
 	$routeProvider
@@ -11,6 +11,13 @@ app.config(function($routeProvider) {
 		controller:'LoginCtrl'
 	})
 	.when('/article',{
+		resolve:{
+			"check":function($location,$cookies,$rootScope){
+				if(!$rootScope.logged){
+					$location.path('/login');
+				}	
+			}
+		},
 		templateUrl:'../article/article-form.html',
 		controller:'ArticleCtrl'
 	})
