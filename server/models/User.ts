@@ -3,6 +3,8 @@
 import {normalize, join} from 'path'
 import {readFile, writeFile} from 'fs'
 
+import {Auth} from '../utils/errors'
+
 
 // user contract
 export interface User {
@@ -25,7 +27,7 @@ let users:User[] =  []
 readFile(f, 'utf8', (err, data)=>{
   if(err) {
     console.log(err)
-    throw "Cannot read users from db!";
+    throw Auth.Messages.CantReadUsersDb;
   } else users = JSON.parse(data)
 })
 
@@ -37,7 +39,7 @@ export function findOneByUsername(username:string, callback:(err:Error, data:Use
     if (user.username === username)
       u = user
   }
-  u? callback(null, u) : callback(new Error('No such user as ' + username), null)
+  u? callback(null, u) : callback(new Error(Auth.Messages.UserDoesNotExists +'id:'+username), null)
 }
 
 export function save(user:User, callback:(err:Error) => void) {
@@ -46,7 +48,7 @@ export function save(user:User, callback:(err:Error) => void) {
     return u.username === user.username
   })
   if (x.length > 0)
-    callback(new Error('User already exists!'))
+    callback(new Error(Auth.Messages.UserExistsAlready))
   else {
     users.push(user)
     writeFile(f, JSON.stringify(users), (err) => {

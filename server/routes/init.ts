@@ -8,8 +8,8 @@ let router = Router()
 
 
 // posts
-router.use('/posts', posts)
 router.use('/auth', auth)
+router.use('/posts', posts)
 
 
 export = router

@@ -8,6 +8,7 @@ import * as passport from 'passport'
 import {Strategy} from 'passport-local'
 import {join} from 'path'
 
+import {Auth} from './utils/errors'
 import * as User from './models/User'
 import * as routes from './routes/init'
 
@@ -15,6 +16,16 @@ import * as routes from './routes/init'
 // setup
 const PORT = process.env.PORT || 8000
 let app = express()
+
+
+// todo ~ rm this!
+// only used for browserSync
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  next()
+})
+
+
 // logger
 app.use(morgan('dev'))
 // parse request payloads
@@ -44,7 +55,9 @@ passport.use(new Strategy((username, password, done) => {
     if (err || !user)
       return done(err, null, {message: 'Not such user!'})
     else if (password !== user.password)
-      return done(new Error('password doesn\'t match!'), null, {message: 'password doesn\'t match!'})
+      return done(new Error(Auth.Messages.WrongPassword),
+                  null,
+                  { message: Auth.Messages.WrongPassword})
     else
       return done(null, user)
   })
@@ -58,13 +71,6 @@ passport.deserializeUser((username, done) => {
   })
 })
 
-
-// todo ~ rm this!
-// only used for browserSync
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  next()
-})
 
 
 // routes

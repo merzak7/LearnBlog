@@ -5,6 +5,7 @@ import * as passport from 'passport'
 import {normalize, join} from 'path'
 import {readFile, writeFile} from 'fs'
 
+import {Core} from '../utils/errors'
 import * as Post from '../models/Post'
 
 let router = Router()
@@ -42,7 +43,7 @@ router.post('/',
   (req, res, next) => {
   let post:Post = req.body
   if (!post)
-    next(new Error('Empty payload!'))
+    next(new Error(Core.Messages.EmptyPayload))
   post.date = parseInt(req.body.date)
   Post.save(post, (err, postId) => {
     if(err)
@@ -55,7 +56,7 @@ router.post('/',
 router.use((err:Error, req, res, next) => {
   if (err) {
     console.error(err.message)
-    res.status(404).json({msg: err.message})
+    res.status(404).json({message: err.message})
   } else next()
 })
 

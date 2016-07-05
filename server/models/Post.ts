@@ -3,6 +3,8 @@
 import {normalize, join} from 'path'
 import {readFile, writeFile} from 'fs'
 
+import {Posts} from '../utils/errors'
+
 
 // post contract
 export interface Post {
@@ -21,7 +23,7 @@ let posts:Post[] =  []
 readFile(f, 'utf8', (err, data)=>{
   if(err) {
     console.log(err)
-    throw "Cannot read posts from db!";
+    throw Posts.Messages.CantReadPostsDb;
   } else posts = JSON.parse(data)
 })
 
@@ -37,7 +39,7 @@ export function findOneById(id:number, callback:(err:Error, data:Post) => void )
     if (post.id === id)
       callback(null, post)
     else
-      callback(new Error('Cannot find post with id:' + id), null)
+      callback(new Error(Posts.Messages.CantFindPost + '  id:' + id), null)
   }
 }
 
