@@ -73,7 +73,7 @@ gulp.task('watch:public', ['serve'], () => {
   browserSync.init({
     port: 9000,
     open: false,
-    proxy: 'http://localhost:8000',
+    server:{baseDir:'./public'},
     ui: {port: 9001}
   })
 gulp.watch(path.normalize(project.static))
