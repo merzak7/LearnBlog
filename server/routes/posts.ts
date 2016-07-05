@@ -1,6 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts"/>
 
 import {Router} from 'express'
+import * as passport from 'passport'
 import {normalize, join} from 'path'
 import {readFile, writeFile} from 'fs'
 
@@ -36,7 +37,9 @@ router.get('/:id', (req, res, next) => {
 
 // post a new article
 // todo ~ validations
-router.post('/', (req, res, next) => {
+router.post('/',
+  passport.authenticate('local'),
+  (req, res, next) => {
   let post:Post = req.body
   if (!post)
     next(new Error('Empty payload!'))
