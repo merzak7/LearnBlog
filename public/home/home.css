@@ -30,16 +30,42 @@
 * ------------------
 */
 .article-info {
-  width: 20%;
-  padding: 5px;
+  padding: 10px;
   text-align: center;
 }
+
 .article-info h4 {
   color: #4d4d4d;
 }
 
 .article-info h5 {
   color: #b4b4b4;
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 768px) {
+  .article-info {
+    min-height: 180px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .article-info h4 {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    font-size: .9em;
+  }
+
+  .article-info h5 {
+    display: none;
+  }
 }
 
 /*
