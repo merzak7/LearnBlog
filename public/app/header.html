@@ -1,23 +1,19 @@
-<md-fab-toolbar layout="row">
-    <md-fab-trigger class="align-with-text">
-        <md-button aria-label="menu" class="md-fab md-warn">
-            <md-icon md-svg-src="../img/menu-button.svg"></md-icon>
-        </md-button>
-    </md-fab-trigger>
-    <md-toolbar>
-        <md-fab-actions class="md-toolbar-tools">
-            <md-button aria-label="home"  ng-href="#/home">
-                <md-icon md-svg-src="../img/home-button.svg"></md-icon>
-              Home
-            </md-button>
-            <md-button aria-label="articles" >
-                <md-icon md-svg-src="../img/document-button.svg"></md-icon>
-              Articles
-            </md-button>
-            <md-button aria-label="user"  ng-href="#/login">
-                <md-icon md-svg-src="../img/user-button.svg"></md-icon>
-              Login
-            </md-button>
-        </md-fab-actions>
-    </md-toolbar>
-</md-fab-toolbar>
+<md-toolbar md-scroll-shrink>
+  <div class="md-toolbar-tools">
+    <span>Learn Blog</span>
+    <!-- fill up the space between left and right area -->
+    <span flex></span>
+    <md-button aria-label="home" ng-href="#/home">
+      <md-icon md-svg-src="../img/home-button.svg"></md-icon>
+      Home
+    </md-button>
+    <md-button aria-label="articles">
+      <md-icon md-svg-src="../img/document-button.svg"></md-icon>
+      Articles
+    </md-button>
+    <md-button aria-label="user" ng-href="#/login">
+      <md-icon md-svg-src="../img/user-button.svg"></md-icon>
+      Login
+    </md-button>
+  </div>
+</md-toolbar>
