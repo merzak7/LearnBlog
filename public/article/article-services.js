@@ -8,6 +8,6 @@ app.service('ArticleServices',function($resource){
 			article=art;
 		};
 		this.getArticles=function(){
-			return $resource("http://localhost:8000/posts");
+			return $resource("/posts");
 		}
 });
