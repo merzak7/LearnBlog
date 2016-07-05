@@ -5,6 +5,7 @@ var nodemon = require('gulp-nodemon')
 var tsfmt = require('gulp-tsfmt')
 var changedInPlace = require('gulp-changed-in-place')
 var changed = require('gulp-changed')
+var sourcemaps = require('gulp-sourcemaps')
 var browserSync = require('browser-sync').create()
 var path = require('path')
 var rm = require('del')
@@ -39,7 +40,9 @@ var project = {
 
 gulp.task('tsc', () => {
   gulp.src(path.normalize(project.src))
+  .pipe(sourcemaps.init())
   .pipe(tsc(project.project))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest(path.normalize(project.build)))
 })
 
@@ -54,6 +57,7 @@ gulp.task('tsformat', () => {
 gulp.task('build', ['tsc', 'copy-static'], () => {})
 
 gulp.task('dist', ['tsc', 'copy-static'], () => {
+// Sourcemaps are included
   gulp.src(path.normalize(project.build + '/**/*.js'))
   .pipe(uglify())
   .pipe(gulp.dest(path.normalize(project.dist)))
