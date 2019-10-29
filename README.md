@@ -1,5 +1,5 @@
 # Learning Blog
-Lorem ipsum Velit esse dolor pariatur dolor adipisicing exercitation.
+A simple project to learn [TypeScript](https://www.typescriptlang.org/).
 
 ### init
 ```bash
