@@ -1,5 +1,6 @@
 # Learning Blog
-A simple project to learn [TypeScript](https://www.typescriptlang.org/).
+> A simple project to learn [TypeScript](https://www.typescriptlang.org/).
+> (deprecated)
 
 ### init
 ```bash
